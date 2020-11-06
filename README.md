@@ -46,7 +46,7 @@ Notes while learning rust
 * All variables (defined by `let`) are immutable without a `mut` keyword.
 
 * `String::new` calls the *associated function* (not method) on the String *type* (not class)
-* `&` works like a reference, presumably like in C and C++
+* `&` works like a reference, presumably like in C and C++. Using `&mut` allows you to modify the reference.
 * `.read_line` returns an `io::Result` which is an enum (has a fixed set of values). Result has variants `Ok` and `Err`.
 * Ok is handled if operation was successful
 * Err if it wasn't
@@ -83,7 +83,36 @@ Notes while learning rust
 
 * `_` is used as a throwaway like in Python & JS. e.g. `Err(_) => continue`. Somewhat weird that `Ok(num) => num` implicitly returns `num` but `Err(_) => continue` triggers the `continue` statement.
 * Switch from `expect` to `match` in order to handle errors.
+* `Result` is apparently generic but it has specific subtypes, e.g. `io::Result`.
+* Tried `cargo install rand` - connects to GitHub. Takes a **really** long time to update the crates.io index.
+
+
+### Errors
+* Try removing the `!` from println. - Suggests "use `!` to invoke the macro".
+* Try removing the `mut` from `&mut guess`
+* Try change the name of `guess`
+* Try pass in just `read_line(guess)`. - Suggests mutably borrinwg using a reference.
+* Try adding `char` type annotation to `guess` definition. - Smart enough to check types both when defined and when used later on.
+* Try use the `\n` character when printing.
+* Try the `print` statement instead of the `println!` macro.
+* Try replace `String::new();` with a string literal - Empty string literal is &str
+* Try replace it with an empty character literal - Empty character literal just says 'empty char'
+* Try replace it with a character literal - expected `&mut std::string::String` but found `&mut char`
+* Try put something in the curly-braces. - 'Positional arguments are zero-based' error. Kinda vague.
+* `read_line` expects a `String::new()` reference (object?). Passing a mutable string-literal doesn't
+* Has built-in linting for unused variables. Suggests using `_`underscore prefix for unused variables.
+* Also catches when you change a variable but don't later use it.
+* Suggests if a mutable variable is not mutated and tells you it doesn't need to be mutable. Very cool!
+* `String::new() == ""` so it's strange that you can't use `let mut guess = "";` and pass it to `read_line`.
+* `String::new("some string")` also doesn't work. This is strange behaviour for teaching beginners about strings.
+* How should users know when to use `String::new` and `""`?
+* Try enter a string instead of number. - Implicitly converts the input to a string.
+* Try leave off `.expect()` call. - Warns about `Result` possibly being `Err` variant and it needing to be handled.
+* Try leave off arguments or give `expect` an integer.
+
 
 
 ## Chapter 3 - Common Programming Concepts
 
+
+* 
