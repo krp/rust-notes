@@ -6,26 +6,26 @@ Notes while learning rust
 ## Chapter 1 - Getting Started
 
 * Piping 'rustup' directly into a shell. Trendy but also questionable.
-* Weird that macros require the ! suffix. Are users going to have to depend on memory to know when to use a macro vs function?
+* Weird that macros require the `!` suffix. Are users going to have to depend on memory to know when to use a macro vs function?
 * Cargo for creating projects seems much nicer than pip+virtualenv. It's more like npm at this point.
 
 
 ## Chapter 2 - Programming a Guessing Game
 
-* Annoying that you have to create a new string with String::new(); instead of "" shorthand. Is it trying to be purely functional?
+* Annoying that you have to create a new string with `String::new();` instead of `""` shorthand. Is it trying to be purely functional?
 * use `std::io` and `io::stdin(`. Are there explicit imports/namespacing or do you have to depend on tooling to know which functions a library provides?
-* So read_line(&mut guess) requires a reference. Why?
+* So `read_line(&mut guess)` requires a reference. Why?
 * Not 100% sure on 'the prelude' and `std::io::prelude` yet. https://doc.rust-lang.org/std/prelude/index.html
-* All variables (defined by let) are immutable without a mut keyword.
+* All variables (defined by `let`) are immutable without a `mut` keyword.
 
 * `String::new` calls the *associated function* (not method) on the String *type* (not class)
-* & works like a reference, presumably like in C and C++
-* .read_line returns an io::Result which is an enum (has a fixed set of values). Result has variants Ok and Err.
+* `&` works like a reference, presumably like in C and C++
+* `.read_line` returns an `io::Result` which is an enum (has a fixed set of values). Result has variants `Ok` and `Err`.
 * Ok is handled if operation was successful
 * Err if it wasn't
 
-* .expect() causes program to crash (fatally) and display the message you give it if an error occurs.
-* Without calling expect() the program will run but it'll complain that you haven't handled the Result.
+* `.expect()` causes program to crash (fatally) and display the message you give it if an error occurs.
+* Without calling `expect()` the program will run but it'll complain that you haven't handled the Result.
 * println() accepts curly-braces like Python's .format strings (but not like f-strings). I'd prefer f-strings.
 * Dependencies need to be manually added to Cargo.toml?
 * Good that it only auto-upgrades patch versions when you run `cargo update`.
@@ -40,7 +40,7 @@ Notes while learning rust
 * `cargo doc --open` should build and open docs for what you currently have.
 * `match` keyword appears to be like C's switch statement at first, but more powerful.
 * Guido van Rossum has some good notes on it for an upcoming PEP (622): https://github.com/gvanrossum/patma/
-* Passing a reference to secret_number in to `guess.cmp` seems verbose.
+* Passing a reference to `secret_number` in to `guess.cmp` seems verbose.
 
 * Branches/cases instead a match are called **arms**
 * `use std::cmp::Ordering` for access to `Ordering`
