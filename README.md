@@ -174,4 +174,30 @@ Notes while learning rust
 ## Chapter 3 - Common Programming Concepts
 
 
-* 
+* Mentions `mut` keyword and the error you see if you try to reassign an immutable variable.
+* `const` keyword for defining constants. Can only be set to an expression (not the result of a function call). Type **must** be annotated.
+* Can use `_` separator for numbers like with Python. e.g. `const MAX_POINTS: u32 = 100_000;`.
+* Does Rust complain if your constants aren't ALL_CAPS? - It doesn't error but it warns. `convert: max_pOiNts to MAX_P_OI_NTS`.
+* Separators also make no difference. `100_000 == 1_0_0_0_0_0`.
+
+* Shadowing requires reusing the `let` keyword, and doesn't need the `mut` keyword. Also lets you change types. Be **very careful** when using it. Probably safest to keep variable declarations at the top of scope, like with C.
+* "Rust is statically typed so it must know the types of all variables at compile time."
+* Scalar types: i8/u8, i16/u16, i32/u32, i64/u64, i128/u128, isize/usize. The latter depend on architecture, e.g. 32 on 32-bit arch, 64 on 64-bit arch.
+* Uses two's-complement like other languages.
+* Integer literals: 98_222, 0xff, 0o77, 0b1111_0000, b'A' (Byte, u8 only).
+
+* In debug-mode Rust checks for integer overflows at runtime. In release mode it doesn't, but it performs two's-complement wrapping.
+* Float types: f32, f64.
+* Operators: +, -, *, /, %
+* Boolean types: bool for type annotation, true/false for values.
+* Character types: 'x', supports Unicode.
+
+* Compound types: Tuple: `let tup: (i32, f64, u8) = (500, 6.4, 1);`
+* Destructuring: `let (x, y, z) = tup;`.
+* Can also use implicit types: `let tup = (500, 6.4, 1);`.
+* Accessing via index: `x.0`, `x.1`, etc. I wonder how to loop through them by index?
+* Array type: `let a = [1, 2, 3, 4, 5];` - Have fixed lengths. Allocates data on the stack rather than heap. Not as flexible as vector types.
+
+* Can explicitly specify type and size: `let a: [i32; 5] = [1, 2, 3, 4, 5];`
+* Can also specify default values: `let a = [3; 5];` generates `[3, 3, 3, 3, 3]`.
+* Accessed via index. e.g. `a[3]`. Doesn't check for invalid index at compile-time but notices the invalid index at runtime..
