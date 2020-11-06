@@ -8,6 +8,33 @@ Notes while learning rust
 * Piping 'rustup' directly into a shell. Trendy but also questionable.
 * Weird that macros require the `!` suffix. Are users going to have to depend on memory to know when to use a macro vs function?
 * Cargo for creating projects seems much nicer than pip+virtualenv. It's more like npm at this point.
+* Create a new project using `cargo new hello_cargo`
+* This creates a `Cargo.toml` file and a `src/` directory and initializes a `git` repository.
+
+* What does the `edition` field in `Cargo.toml` correspond to? It defaults to "2018". Version of rust package configuration?
+* Defaults to semantic versioning. Grabs your git config email address and inserts it.
+* `cargo build` builds a file and places it in `target/debug` by default.
+* `cargo run` runs it.
+* A whole bunch of additional object files & others are created in the `target/debug` directory.
+
+* Includes an `Info.plist` file and `Resources` directory.
+* `hello_world` has large ELF-looking binary placed in `target/debug/deps/hello_cargo.dSYM/Contents/Resources/DWARF/hello_cargo` and it's **HUGE**. 961kB aka 1MB.
+* What's the `.dSYM` file used for?
+* Other `hello_world` binary is in `target/debug/deps` and is 309kB. Still huge.
+* Contains other files in a `.fingerprint` directory. Also contains an `invoked_timestamp` file which has an `mtime` of when the build was started.
+
+* Has a bunch of `.o` object files in `target/debug/incremental/hello_cargo-somehash/some-uuid-looking-thing`
+* Has a `.lock` file in the same directory.
+* Has some `dep-graph.bin`, `query-cache.bin`, and `work-products.bin` files in addition to the object files.
+* `dep-graph.bin` has `RSIC 1.45.2 (d3fb005a3 2020-07-31)` header.
+* `query-cache.bin` has the same but also has mention of `println` and other functions, as well as `rust_eh_personality`(?).
+* `work-products.bin` has the same header but the file is tiny and doesn't have much else.
+
+* `cargo check` does a dry-run without producing a binary. Faster than running `cargo build` to check if it builds or not.
+* Maybe setup a vim script to autorun `cargo check` on file save.
+* Cargo appears to search parent directories for a `Cargo.toml` file if you're in the `src` directory.
+* `cargo build --release` to build a release version with optimizations.
+* `cargo run` still runs the dev version. `cargo run --release` runs the release version.
 
 
 ## Chapter 2 - Programming a Guessing Game
@@ -56,3 +83,7 @@ Notes while learning rust
 
 * `_` is used as a throwaway like in Python & JS. e.g. `Err(_) => continue`. Somewhat weird that `Ok(num) => num` implicitly returns `num` but `Err(_) => continue` triggers the `continue` statement.
 * Switch from `expect` to `match` in order to handle errors.
+
+
+## Chapter 3 - Common Programming Concepts
+
