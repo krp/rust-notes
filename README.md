@@ -201,3 +201,8 @@ Notes while learning rust
 * Can explicitly specify type and size: `let a: [i32; 5] = [1, 2, 3, 4, 5];`
 * Can also specify default values: `let a = [3; 5];` generates `[3, 3, 3, 3, 3]`.
 * Accessed via index. e.g. `a[3]`. Doesn't check for invalid index at compile-time but notices the invalid index at runtime..
+
+
+## Chapter 4 - Ownership
+
+`s.push_str(", world!"); // push_str() appends a literal to a String`. Why push_str? Can't it infer a string from the argument?
