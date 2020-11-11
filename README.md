@@ -205,4 +205,6 @@ Notes while learning rust
 
 ## Chapter 4 - Ownership
 
-`s.push_str(", world!"); // push_str() appends a literal to a String`. Why push_str? Can't it infer a string from the argument?
+* `s.push_str(", world!"); // push_str() appends a literal to a String`. Why push_str? Can't it infer a string from the argument?
+
+* Rust has 2 string types. String for heap-allocated strings and str for both literals and slices.
