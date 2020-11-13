@@ -14,7 +14,7 @@ Notes while learning rust
 * What does the `edition` field in `Cargo.toml` correspond to? It defaults to "2018". Version of rust package configuration?
 * Defaults to semantic versioning. Grabs your git config email address and inserts it.
 * `cargo build` builds a file and places it in `target/debug` by default.
-* `cargo run` runs it.
+* `cargo run` automatically runs it, but it will also automatically detect other changes.
 * A whole bunch of additional object files & others are created in the `target/debug` directory.
 
 * Includes an `Info.plist` file and `Resources` directory.
@@ -173,6 +173,7 @@ Notes while learning rust
 
 ## Chapter 3 - Common Programming Concepts
 
+### Data Types
 
 * Mentions `mut` keyword and the error you see if you try to reassign an immutable variable.
 * `const` keyword for defining constants. Can only be set to an expression (not the result of a function call). Type **must** be annotated.
@@ -201,3 +202,60 @@ Notes while learning rust
 * Can explicitly specify type and size: `let a: [i32; 5] = [1, 2, 3, 4, 5];`
 * Can also specify default values: `let a = [3; 5];` generates `[3, 3, 3, 3, 3]`.
 * Accessed via index. e.g. `a[3]`. Doesn't check for invalid index at compile-time but notices the invalid index at runtime..
+
+### Functions
+
+* `snake_case` for function and variable names
+* Rust doesn't care where you define your functions
+* What happens when you try to return from a function which you haven't specified a return type? - Says 'possibly return type missing here?'
+* `statements` are instructions that perform some action that do not return a value
+* `expressions` evaluate to a resulting value
+
+* You can't assign a `let` statement to another variable. e.g. `let x = (let y = 6);`. - Says 'variable declaration using `let` is a statement'.
+* Can't write `x = y = 6` in Rust.
+* Can use them in curly braces if you use block-scope. e.g.
+```rust
+let y = {
+    let x = 3;
+    x + 1
+};
+```
+* Function return types are annotated with `-> type`. e.g. `fn five() -> i32 { 5 }`
+* Forgetting to return from a function gives 'expected `i32`, found `()`.
+
+
+### Comments
+
+* Comments all begin with `//`. There are no multi-line or block comments. Just prefix everything with `//`
+
+
+### Control Flow
+
+* `if` expressions don't have surrounding parentheses. e.g. `if number < 5 { ... } else { ... }`
+* Blocks of code associated with conditions are called **arms** in Rust.
+* No *truthiness* in Rust. Conditions must evaluate to booleans. Says 'expected `bool`, found integer' otherwise.
+* No implicit type conversion/coercion in conditional
+* Can use `if/else` in a `let` statement. e.g. `let number = if condition { 5 } else { 6 };`.
+
+* Values returned by different arms must all be the same type. - Get 'expected integr, found `&str` otherwise.
+* Rust has 3 loop types. `loop`, `while`, and `for`.
+* `loop` runs until you explicitly tell it to stop
+* The `break` keyword supports returning values from a loop. e.g. `let result = loop { ... }` then `break counter * 2` inside the loop. Pretty cool!
+* `while` loops work as expected. e.g. `while number != 0 { ... }`.
+
+* `for` loops require creating an iterator. e.g. `let a = [1, 2, 3];` then `for element in a.iter() { ... }`.
+* Sequences and reverse loops can be done with `for number in (1..4).rev() { ... }`
+
+
+### Exercises
+* Convert temperatue between Fahrenheit and Celsius
+* Generate the nth Fibonacci number
+* Print the lyrrics to the Christmas carol song "The Twelve Days of Christmas", taking advantage of the repetition of the song.
+
+
+
+## Chapter 4 - Ownership
+
+* `s.push_str(", world!"); // push_str() appends a literal to a String`. Why push_str? Can't it infer a string from the argument?
+
+* Rust has 2 string types. String for heap-allocated strings and str for both literals and slices.
