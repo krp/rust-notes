@@ -259,3 +259,9 @@ let y = {
 * `s.push_str(", world!"); // push_str() appends a literal to a String`. Why push_str? Can't it infer a string from the argument?
 
 * Rust has 2 string types. String for heap-allocated strings and str for both literals and slices.
+
+
+## Chapter 5 - Structs
+
+## Chapter 6 - Enums and Pattern Matching
+
