@@ -267,3 +267,6 @@ let y = {
 
 ## Chapter 7 - Packages, Crates & Modules
 
+## Chapter 8 - Common Collections
+
+## Chapter 9 - Error Handling
