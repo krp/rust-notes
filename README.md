@@ -265,3 +265,5 @@ let y = {
 
 ## Chapter 6 - Enums and Pattern Matching
 
+## Chapter 7 - Packages, Crates & Modules
+
