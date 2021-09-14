@@ -260,6 +260,12 @@ let y = {
 
 * Rust has 2 string types. String for heap-allocated strings and str for both literals and slices.
 
+Use String::from to create a String from a string literal.
+
+:: operator is used for namespacing.
+
+Copy trait can be used only if the Drop trait hasn't been used.
+
 
 ## Chapter 5 - Structs
 
