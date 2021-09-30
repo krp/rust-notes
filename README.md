@@ -256,15 +256,29 @@ let y = {
 
 ## Chapter 4 - Ownership
 
+
+### 4.01 - Ownership
+
 * `s.push_str(", world!"); // push_str() appends a literal to a String`. Why push_str? Can't it infer a string from the argument?
 
 * Rust has 2 string types. String for heap-allocated strings and str for both literals and slices.
 
-Use String::from to create a String from a string literal.
+* Use String::from to create a String from a string literal.
 
-:: operator is used for namespacing.
+* :: operator is used for namespacing.
 
-Copy trait can be used only if the Drop trait hasn't been used.
+* Copy trait can be used only if the Drop trait hasn't been used.
+
+
+### 4.02 - References and Borrowing
+
+* & for references
+
+* 
+
+Copy vs Clone types - https://stackoverflow.com/questions/31012923/what-is-the-difference-between-copy-and-clone
+
+Named arguments don't work for constructors? e.g. Point::new(x: 10, y: 10);
 
 
 ## Chapter 5 - Structs
