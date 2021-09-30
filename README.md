@@ -271,10 +271,20 @@ let y = {
 
 * Copy trait can be used only if the Drop trait hasn't been used.
 
+* Rust automatically calls the *drop* function when something goes out of scope.
+
+* Types that implement Copy trait (stack-based): Integers, Booleans, Floats, Chars, Tuples that contain types which implement Copy.
+
+* Functions take ownership of their arguments but can give it back with return values.
+
+* Still strange to have implicit returns (without the *return* keyword) when everything else in the language is explicit.
+
 
 ### 4.02 - References and Borrowing
 
-* & for references
+* Use references when you don't need to take ownership.
+
+* & for references (similar to C++)
 
 * 
 
