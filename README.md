@@ -224,6 +224,8 @@ let y = {
 * Forgetting to return from a function gives 'expected `i32`, found `()`.
 
 
+* Rustlings notes: Returning Ok(()) from a function looks weird.
+
 ### Comments
 
 * Comments all begin with `//`. There are no multi-line or block comments. Just prefix everything with `//`
@@ -280,13 +282,70 @@ Copy vs Clone types - https://stackoverflow.com/questions/31012923/what-is-the-d
 
 Named arguments don't work for constructors? e.g. Point::new(x: 10, y: 10);
 
+### Notes from Rustlings
+
+* Move semantics 2
+1st way: vec0.clone();, 2nd way: borrow (using &) then make clone and return new vec, 3rd way: pass in &mut vec0 to fill_vec and change args to make it a mutable reference. Make vec2 mutable, remove return value and change function signature, then finally make vec1 a clone of vec0 after filling vec0.
+
+* Primitive types 2:
+is_numeric() only exists on characters, not on strings.
+
+* Stupid: Parsing a float in Rust: s = "3.14"; s.trim().parse::<f64>().is_ok()
+
+
 
 ## Chapter 5 - Structs
+    
+    
+Notes from Rustlings: 3 struct types: C, tuple, and unit(? no docs on this, seems to just be like the empty set?).
+
+
 
 ## Chapter 6 - Enums and Pattern Matching
+    
+Rustlings notes: Enums are defined without using strings or defining names.
+Two different syntaxes for defining enum types. struct-like with argument names & curly braces, and function-like without.
+    
+
 
 ## Chapter 7 - Packages, Crates & Modules
 
 ## Chapter 8 - Common Collections
 
 ## Chapter 9 - Error Handling
+    
+## Chapter 10 - Generic Types, Traits, and Lifetimes
+    
+* Rustlings notes: AppendBar implementation uses self + "Bar". Isn't "Bar" a CString/str? If so shouldn't the compiler complain when trying to append it? self + String::from("Bar") fails yet the function signature returns a String and not an str.
+
+* Kind of cool that traits can add methods to built-in types.
+* Coherence/Orphan Rule (ch10.02) prevents overriding stdlib methods that are out of scope.
+    
+* Trait Bounds: Can a method not call methods on another type without specifying the traits they implement? e.g. with notify() in chapter 2.
+    
+* Multiple trait bounds using the *where* keyword.
+    
+   
+## Chapter 11 - Writing Automated Tests
+    
+## Chapter 12 - An I/O Project: Building a Command Line Program
+    
+## Chapter 13 - Functional Language Features: Iterators and Closures
+
+* Rustlings notes: *i *= 2. Interesting syntax for iter_mut in collections/vec2.rs.
+
+## Chapter 14 - More about Cargo and Crates.io
+   
+## Chapter 15 - Smart Pointers
+    
+## Chapter 16 - Fearless Concurrency
+    
+## Chapter 17 - Object Oriented Programming Features of Rust
+
+## Chapter 18 - Patterns and Matching
+    
+## Chapter 19 - Advanced Features
+    
+## Chapter 20 - Final Project: Building a Multithreaded Web Server
+    
+## Chapter 21 - Appendix
