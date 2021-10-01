@@ -350,6 +350,13 @@ Two different syntaxes for defining enum types. struct-like with argument names 
     
 ## Chapter 16 - Fearless Concurrency
     
+* Rust only supports 1:1 threads by default (M:N threads are supported by libraries).
+* use std::thread and thread::spawn, giving it a closure with || to create a thread.
+* Save result as a handle and use handle.join().unwrap() to force execution to wait for threads to end.
+* Use *move* keyword to move value into thread instead of having thread borrow it.
+    
+* use std::sync::mpsc for Message Passing (multiple producer, single consumer).
+    
 ## Chapter 17 - Object Oriented Programming Features of Rust
 
 ## Chapter 18 - Patterns and Matching
