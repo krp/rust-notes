@@ -324,6 +324,8 @@ Two different syntaxes for defining enum types. struct-like with argument names 
 
 ## Chapter 9 - Error Handling
     
+* .unwrap() panics if the function returns an error. Useful in early stages of development before proper error handling is in place.
+    
 ## Chapter 10 - Generic Types, Traits, and Lifetimes
     
 * Rustlings notes: AppendBar implementation uses self + "Bar". Isn't "Bar" a CString/str? If so shouldn't the compiler complain when trying to append it? self + String::from("Bar") fails yet the function signature returns a String and not an str.
@@ -356,6 +358,16 @@ Two different syntaxes for defining enum types. struct-like with argument names 
 * Use *move* keyword to move value into thread instead of having thread borrow it.
     
 * use std::sync::mpsc for Message Passing (multiple producer, single consumer).
+* Thread must own tx to use it.
+* tx.send() returns a Result<T, E>
+* Ownership of a value is transferred once it's been sent down a channel.
+    
+* rx has recv and try_recv. try_recv is non-blocking.
+
+* use std::sync::Mutex for mutexes.
+* Rc is not thread-safe. Use Arc (atomic).
+* See stdlib docs for std::sync::atomic for more details.
+
     
 ## Chapter 17 - Object Oriented Programming Features of Rust
 
