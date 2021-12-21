@@ -341,6 +341,18 @@ Two different syntaxes for defining enum types. struct-like with argument names 
 ## Chapter 11 - Writing Automated Tests
     
 ## Chapter 12 - An I/O Project: Building a Command Line Program
+
+### 12.01
+* Read arguments with `std::env`
+* let args: Vec<String> = env::args().collect();
+* Access with &args[1];
+
+### 12.02 
+* Read files with `std::fs` and `fs::read_to_string(filename)`
+
+### 12.03
+* Functions that return tuples can have their values accessed via name.
+* e.g. If a function returns (query, filename) and you save to a `config` variable, can access with `config.filename`.
     
 ## Chapter 13 - Functional Language Features: Iterators and Closures
 
