@@ -298,13 +298,25 @@ Named arguments don't work for constructors? e.g. Point::new(x: 10, y: 10);
 * Primitive types 2:
 is_numeric() only exists on characters, not on strings.
 
-* Stupid: Parsing a float in Rust: s = "3.14"; s.trim().parse::<f64>().is_ok()
-
+* Stupid: Parsing a float in Rust: `s = "3.14"; s.trim().parse::<f64>().is_ok()`
 
 
 ## Chapter 5 - Structs
-    
-    
+### 5.1 - Defining and Instantiating Structs
+* Struct are similar to those in C.
+* *Fields* and *instances* are names reused from OOP.
+* Don't need to use the same order as field names when creating an instance of a struct.
+* dot-notation for accessing fields. e.g. `user1.email`.
+* **Entire instance** must be mutable when creating an instance. Single fields in a struct can't be mutable while others aren't.
+* *Constructor* name isn't used in book yet. Functions can have any name so presumably you can also have multiple constructor types.
+* Must return the same type as the struct. e.g. `fn build_user(..) -> User {` for a `User` struct.
+* Instantiate the struct with curly-braces inside the function and it's implicitly returned.
+* Can avoid `email: email,` etc using similar trick to ES6 by just writing `email` if field and parameter share same name.
+* *Struct-update syntax* works like ES6' *spread* operator. e.g. `..user1` at the end of instantiating a struct to copy additional fields.
+* 
+
+
+
 Notes from Rustlings: 3 struct types: C, tuple, and unit(? no docs on this, seems to just be like the empty set?).
 
 
