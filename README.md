@@ -286,8 +286,6 @@ let y = {
 
 * & for references (similar to C++)
 
-* 
-
 Copy vs Clone types - https://stackoverflow.com/questions/31012923/what-is-the-difference-between-copy-and-clone
 
 Named arguments don't work for constructors? e.g. Point::new(x: 10, y: 10);
@@ -353,6 +351,7 @@ Two different syntaxes for defining enum types. struct-like with argument names 
 ### 12.03
 * Functions that return tuples can have their values accessed via name.
 * e.g. If a function returns (query, filename) and you save to a `config` variable, can access with `config.filename`.
+    
     
 ## Chapter 13 - Functional Language Features: Iterators and Closures
 
