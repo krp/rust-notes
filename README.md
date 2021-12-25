@@ -313,7 +313,7 @@ is_numeric() only exists on characters, not on strings.
 * Instantiate the struct with curly-braces inside the function and it's implicitly returned.
 * Can avoid `email: email,` etc using similar trick to ES6 by just writing `email` if field and parameter share same name.
 * *Struct-update syntax* works like ES6' *spread* operator. e.g. `..user1` at the end of instantiating a struct to copy additional fields.
-* 
+* Tuples can't be iterated over due to rust being an expression-based language. 
 
 
 
