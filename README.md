@@ -401,3 +401,9 @@ Two different syntaxes for defining enum types. struct-like with argument names 
 ## Chapter 20 - Final Project: Building a Multithreaded Web Server
     
 ## Chapter 21 - Appendix
+
+    
+    
+# Rust WASM
+    * cargo generate --git https://github.com/rustwasm/wasm-pack-template.git --name my-project
+cd my-project
