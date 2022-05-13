@@ -411,5 +411,5 @@ cd my-project
 ```
     
 ### Additional resources:
-    * [Minesweeper with Rust and WASM](https://www.youtube.com/watch?v=0ywizYLPV00)
-    * [Recursive Descent Parser in Rust](https://www.huy.rocks/everyday/05-08-2022-parsing-recursive-descent-parser)
+* [Minesweeper with Rust and WASM](https://www.youtube.com/watch?v=0ywizYLPV00)
+* [Recursive Descent Parser in Rust](https://www.huy.rocks/everyday/05-08-2022-parsing-recursive-descent-parser)
