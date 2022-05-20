@@ -314,12 +314,26 @@ is_numeric() only exists on characters, not on strings.
 * Can avoid `email: email,` etc using similar trick to ES6 by just writing `email` if field and parameter share same name.
 * *Struct-update syntax* works like ES6' *spread* operator. e.g. `..user1` at the end of instantiating a struct to copy additional fields.
 * Tuples can't be iterated over due to rust being an expression-based language. 
-
-
+* *Tuple structs* look like: `struct Color(i32, i32, i32);` then `let black = Color(0, 0, 0);`
+* *Unit-like structs* without any fields "behave similarly to `()`. e.g. `struct AlwaysEqual` then `let subject = AlwaysEqual;`. Purpose?
+* Used when you need to implement a trait on some type but don't have any data that you want to store on the type.
+* **Ownership**. Want stures to own their data, but can also store references using *lifetimes* (Chapter 10).
 
 Notes from Rustlings: 3 struct types: C, tuple, and unit(? no docs on this, seems to just be like the empty set?).
 
+### 5.2 - An Example Program Using Structs
+* Structs require `#[derive(Debug)]` outer attribute to be displayed with `{:?}` with `println!`.
+* Use `{:#?}` for prettier debug output.
+* Can use `dbg!(&rect1)` to display additional error information, but it prints by default to `stderr` instead of `stdout`. Extremely helpful!
+* There are many attributes other than `derive` and many traits other than `Debug`.
 
+### 5.3 - Method Syntax
+* Used for turning `area` function into a method defined on the `Rectangle` type.
+* Methods are defined within the context of a struct, an enum, or a trait object.
+* First parameter is always `self` (like in Python).
+* Put them inside an `impl` block.
+* Call them just like you would in OOP languages.
+* Up to listing 5-13.
 
 ## Chapter 6 - Enums and Pattern Matching
     
