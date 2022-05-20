@@ -333,9 +333,22 @@ Notes from Rustlings: 3 struct types: C, tuple, and unit(? no docs on this, seem
 * First parameter is always `self` (like in Python).
 * Put them inside an `impl` block.
 * Call them just like you would in OOP languages.
-* Up to listing 5-13.
+* Using `&self` is short for `self: &Self`.
+* Need the `&` in front of `self` to indicate that the method borrows the `Self` instance.
+* Methods can take ownership of `self`, borrow it immutability (like above), or borrow mutably (with `&mut self`).
+* Rare to borrow self mutably unless method transforms self into something else and you want to prevent caller from using original instance afterwards.
+* Rust can have a method with the same name as a property. e.g. `width` property on a type and `width()` method on it too. For a language focused on safety and unambiguity, this seems dumb to allow. It's a way for rust to do **getters** but it's also implicit rather than explicit.
+* Rust has no `->` operator like C++. Has *automatic referencing and dereferencing*. When you call `object.something()` rust automatically adds `&`, `&mut`, or `*` so object matches the signature of the method.
+* Use same `other` parameter name for operator overloading style of comparing two types like you would with something like Python. e.g. `fn can_hold(&self, other: &Rectangle)`
+* All functions defined within an `impl` are *associated functions*. Functions with `self` are methods but ones without are not. e.g. `String::from`.
+* Associated methods are often used for constructors.
+* Use the `::` syntax to call an associated function. e.g. `fn square(size: u32) -> Rectangle { ... }` then `let sq = Rectangle::square(3);`. Function is namespaced by the struct.
+* Can use multiple `impl` blocks.
 
 ## Chapter 6 - Enums and Pattern Matching
+
+### 6.1 Defining An Enum
+* 
     
 Rustlings notes: Enums are defined without using strings or defining names.
 Two different syntaxes for defining enum types. struct-like with argument names & curly braces, and function-like without.
