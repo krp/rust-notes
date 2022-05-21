@@ -348,8 +348,13 @@ Notes from Rustlings: 3 struct types: C, tuple, and unit(? no docs on this, seem
 ## Chapter 6 - Enums and Pattern Matching
 
 ### 6.1 Defining An Enum
+* Define enum with the expected syntax: `enum IpAddrKind { V4, V6 }` and create them like `let four = IpAddrKind::V4;`
+* Can also be used like `enum IpAddr { V4(String), V6(String), }` and `let home = IpAddr::V4(String::from("127.0.0.1"));
+* stdlib has IpAddr enum types.
+* Can define methods on enums just like with structs using `impl`.
+* `Option` enum type
+* Rust has no *null* type
 * 
-    
 Rustlings notes: Enums are defined without using strings or defining names.
 Two different syntaxes for defining enum types. struct-like with argument names & curly braces, and function-like without.
     
